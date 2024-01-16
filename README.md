@@ -15,7 +15,7 @@ Regular backups are a must for any system, but especially important if you run a
 # The Script
 Credit to `PragmaticLinux` for [this awesome guide](https://www.pragmaticlinux.com/2020/12/how-to-clone-your-raspberry-pi-sd-card-in-linux/) that the script is based on. You should never trust me or my scripts, you can read and see what it does.
 
-Download this repository or [just the script](https://gitea.raspiweb.com:2053/Gerge/RasPi_Backup/src/branch/main/raspiclone.sh) and make it executable with `chmod +x raspiclone.sh`
+Download this repository or [just the script](https://gitea.raspiweb.com/Gerge/RasPi_Backup/src/branch/main/raspiclone.sh) and make it executable with `chmod +x raspiclone.sh`
 
 Before you use `raspiclone.sh` you need to configure the SD card and save location at the top of the file.
 ```
