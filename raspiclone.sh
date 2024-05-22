@@ -2,6 +2,7 @@
 
 saveloc="/home/gerge" # where the backup is saved
 piSDcard="mmcblk0" # make sure this is the SD card and not a partition (example mmcblk0p1 is invalid)
+#piSDcard="sda" #if cloning a USB stick
 #based on https://www.pragmaticlinux.com/2020/12/how-to-clone-your-raspberry-pi-sd-card-in-linux/
 if [[ -d $saveloc ]]; then
   echo "save location $saveloc ok"
@@ -17,12 +18,14 @@ else
 fi
 
 freearray=($(df -h $saveloc))
-sdsize=($(lsblk | grep '^mmcblk0'))
+sdsize=($(lsblk | grep "^$piSDcard"))
 echo "Minimum space required is ${sdsize[3]} (size of the SD card). You have ${freearray[10]} available."
 echo 'give .img filename (file extension will be appended automatically):'
 read name
-sudo dd bs=4M if=/dev/$piSDcard of=$saveloc/$name.img conv=fsync
+name=$(date +%Y-%m-%d)_$name
+sudo dd bs=4M if=/dev/$piSDcard of=$saveloc/$name.img conv=fsync status=progress
 sudo chown $USER: $saveloc/$name.img
+#exit #exit here if you copy something other than a Pi OS card
 if [[ -f /usr/local/sbin/pishrink ]]; then
   echo 'found pishrink, shrinking empty space...'
   sudo pishrink $saveloc/$name.img

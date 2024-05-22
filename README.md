@@ -10,7 +10,7 @@ Regular backups are a must for any system, but especially important if you run a
 - Move to smaller or larger SD card if you want.
 - Use the same system image you create with other Raspberry Pis (even different models).
 ### Disadvantages
-- The Server needs to be powered off and SD removed for the backup. (~approx 10 minutes for 16GB)
+- The Server needs to be powered off and SD removed for the backup. (~approx 10 minutes, depending on SD card speed/size)
 
 # The Script
 Credit to `PragmaticLinux` for [this awesome guide](https://www.pragmaticlinux.com/2020/12/how-to-clone-your-raspberry-pi-sd-card-in-linux/) that the script is based on. You should never trust me or my scripts, you can read and see what it does.
